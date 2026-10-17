@@ -17,6 +17,5 @@ The plugins use OIDC discovery only, no hardcoded endpoints. Switching IdP is a 
 |-----|-------|
 | Own oauth2-server | Phase 2 default if OIDC-compliant (Spring Authorization Server meets all requirements). Short token lifetimes are handy for testing offline expiry |
 | Keycloak (Docker) | Fallback if own server lacks refresh tokens, PKCE or JWKS. Also the second IdP to prove portability |
-| AWS Cognito | Optional last phase, deployed via CDK or Terraform |
 
 A plain OAuth2 server without OIDC has no ID token and no discovery: add OIDC or use Keycloak.
