@@ -23,7 +23,8 @@ javafx-authentication-demo/
 ```
 
 ## Phase 0 – Skeleton
-- **First:** verify SnapFX API/docs and that a minimal window builds, before anything else depends on it.
+- **First:** run `scripts/install-snapfx.sh` (SnapFX is not on Maven Central; the script installs the GitHub release jar `org.snapfx:snapfx-core:0.8.0` into `~/.m2`, verifying its sha256). Verify API/docs and that a minimal window builds before anything else depends on it.
+- SnapFX jar ships no POM dependencies: the `app` POM must declare `com.google.gson:gson:2.10.1` and JavaFX (`controls`, `graphics`, `base`) itself. CI runs the install script before `mvn verify`.
 - Parent POM, 4 modules, JDK 21, CI (GitHub Actions: `mvn verify`).
 - `app` shows an empty SnapFX window.
 - **Done when:** `mvn verify` green on CI, app launches.
