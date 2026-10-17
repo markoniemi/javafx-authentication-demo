@@ -6,7 +6,7 @@ JavaFX desktop app. UI built with SnapFX. Authentication is pluggable via PF4J: 
 
 ```
 javafx-authentication-demo/
-  app/                    JavaFX + SnapFX shell, PF4J host
+  desktop-app/            JavaFX + SnapFX shell, PF4J host
   auth-api/               AuthProvider extension point, AuthSession, AuthState
   plugin-oidc-online/     Discovery, Authorization Code + PKCE, refresh
   plugin-oidc-offline/    Encrypted token cache, JWKS cache, offline policy

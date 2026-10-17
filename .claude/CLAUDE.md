@@ -26,7 +26,7 @@ IntelliJ MCP tools are aware of the project structure, dependencies, and IDE sta
 JavaFX desktop app (SnapFX UI, PF4J plugins) demonstrating OIDC login that keeps working when the IdP is unreachable. Maven multi-module, JDK 21, classpath (no JPMS):
 
 - `auth-api`: `AuthProvider` extension point, token/session model
-- `app`: JavaFX + SnapFX shell, PF4J host
+- `desktop-app`: JavaFX + SnapFX shell, PF4J host
 - `plugin-oidc-online`: discovery, Authorization Code + PKCE, refresh
 - `plugin-oidc-offline`: encrypted token cache, JWKS cache, offline policy
 
@@ -34,7 +34,7 @@ See `docs/PLAN.md` for phases and open decisions.
 
 ### Key Architectural Patterns
 
-**Plugins** — Auth providers are PF4J plugins loaded from `plugins/` at startup. Plugins depend on `auth-api` only; the app never depends on a plugin module.
+**Plugins** — Auth providers are PF4J plugins loaded from `plugins/` at startup. Plugins depend on `auth-api` only; `desktop-app` never depends on a plugin module.
 
 **Offline policy** — Time-based checks use an injected `Clock`. Tokens at rest are always encrypted (AES-GCM); the max-offline window is the documented trade-off for undetectable revocation.
 
